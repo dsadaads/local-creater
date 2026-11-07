@@ -1,22 +1,66 @@
-<!doctype html>
-<html lang="ko" class="scroll-smooth dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI 기반 R&D 시각화 & 딥테크 숏폼 크리에이터 - 김민수</title>
-    <meta name="description" content="대덕연구개발특구 R&D 연구 성과를 30초 AI 숏폼과 시각화로 전환하는 딥테크 크리에이터 김민수의 창직 랜딩페이지." />
-    <meta property="og:title" content="AI 기반 R&D 시각화 & 딥테크 숏폼 크리에이터 - 김민수" />
-    <meta property="og:description" content="어려운 R&D 연구 성과, 30초 AI 숏폼 & 시각화로 투자자를 매료시키세요." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  </head>
-  <body class="bg-[#0B0F19] text-slate-100 font-sans antialiased selection:bg-violet-600 selection:text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+import React from 'react';
 
+interface FooterProps {
+  onOpenReportModal: () => void;
+  onOpenBetaModal: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({
+  onOpenReportModal,
+  onOpenBetaModal,
+}) => {
+  return (
+    <footer className="border-t border-slate-800/80 py-12 bg-[#0B0F19] text-slate-500 text-xs">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800/60">
+          {/* Brand */}
+          <div className="text-center md:text-left">
+            <div className="text-base font-bold bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+              DeepTech AI Studio
+            </div>
+            <p className="text-slate-400 text-xs mt-1">
+              AI 기반 R&D 시각화 & 딥테크 숏폼 크리에이터 · 창직자 김민수
+            </p>
+            <p className="text-slate-500 text-[11px] mt-0.5">
+              협력: 충남대학교 창업지원단 · 대덕연구개발특구
+            </p>
+          </div>
+
+          {/* Nav & Report Links */}
+          <div className="flex flex-wrap items-center justify-center gap-6 text-slate-400 font-medium">
+            <a href="#문제-정의" className="hover:text-cyan-400 transition-colors">문제</a>
+            <a href="#솔루션-제시" className="hover:text-cyan-400 transition-colors">솔루션</a>
+            <a href="#실증-사례" className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors">실증사례</a>
+            <a href="#핵심-기능혜택" className="hover:text-cyan-400 transition-colors">혜택</a>
+            <a href="#신뢰-구축" className="hover:text-cyan-400 transition-colors">신뢰</a>
+            <a href="#가격-및-조건" className="hover:text-cyan-400 transition-colors">가격</a>
+            <button
+              type="button"
+              onClick={onOpenReportModal}
+              className="hover:text-cyan-400 transition-colors cursor-pointer"
+            >
+              창직 보고서 전문
+            </button>
+            <button
+              type="button"
+              onClick={onOpenBetaModal}
+              className="text-violet-400 hover:text-violet-300 font-semibold cursor-pointer"
+            >
+              베타 참여 신청
+            </button>
+          </div>
+        </div>
+
+        {/* Bottom Copyright */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-slate-500">
+          <div>
+            © 2026 DeepTech AI Studio (Kim Minsu). All rights reserved.
+          </div>
+          <div className="text-[11px] text-slate-500">
+            대전광역시 유성구 대학로 99 충남대학교 창업보육센터
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
